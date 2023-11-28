@@ -10,6 +10,8 @@
 
 ---
 
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/InvaderZim85/ZimLabs.DotnetReleaseHelper)](https://github.com/InvaderZim85/ZimLabs.DotnetReleaseHelper/releases) [![Nuget](https://img.shields.io/nuget/v/ZimLabs.DotnetReleaseHelper)](https://www.nuget.org/packages/ZimLabs.DotnetReleaseHelper/)
+
 # General
 
 This repository provides a class library that can be used to easily create a .NET release.
