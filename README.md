@@ -6,7 +6,7 @@
 - [Version number format](#version-number-format)
 - [Settings](#settings)
 - [Custom actions](#custom-actions)
-- [Usage](#usage)
+- [Example](#example)
 
 ---
 
@@ -63,6 +63,9 @@ The following settings are available:
 | 9. | `ZipArchiveName` | The name of the ZIP archive. | `MyApp` | No |
 | 10. | `AttachVersionToZipArchiveName` | If set to `true` the version number will be added to the ZIP archive name. | `MyApp_1.2.3.4.zip` | No |
 | 11. | `ZipArchiveDestination` | Contains the path of the ZIP archive so you can use it in a custom action. | / | No |
+| 12. | `GenerationVersionNumber` | Custom function to create a version number. **Note**: If you specify a function, `Version` and `VersionType` will be ignored. | / | No |
+| 13. | `CustomActions` | The list with the custom actions. | / | No |
+| 14. | `ZipCompressionLevel` | The compression level of the ZIP file. **Note**: Only needed when `CreateZipArchive` is set to `true`. | / | No |
 
 # Custom actions
 
@@ -109,8 +112,11 @@ public static void Main(string[] args)
         StopOnException = true // Stop the process when an error occurs
     };
 
+    // Add the custom action
+    settings.CustomActions.Add(customAction);
+
     // Start the release
-    releaseHelper.CreateRelease(settings, customAction);
+    releaseHelper.CreateRelease(settings);
 }
 
 // This method extracts the "PackageReference" entries of the project file
@@ -133,4 +139,6 @@ private static void ExtractPackages(ReleaseSettings settings)
 }
 ```
 
-# Usage
+# Example
+
+For an example take a look at the [Demo](ZimLabs.DotnetReleaseHelper/Demo/)
